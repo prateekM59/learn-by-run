@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -121,6 +122,9 @@ public class JavaDateTimeTest {
 
         ZonedDateTime zonedDateTime4 = ZonedDateTime.parse("Sat, Jul 13, 2019 22:37 +01:00", DateTimeFormatter.ofPattern("E, MMM dd, yyyy HH:mm z"));
         System.out.println("parsed zonedDateTime4: "+ zonedDateTime4);
+
+//        LocalDate zonedDateTime5 = LocalDate.parse("2019-03-31", DateTimeFormatter.ofPattern("MMM dd, yyyy")); // error because given format does not match given date formate to parse
+
     }
 
 
