@@ -44,16 +44,17 @@ public class Graph<T> {
     }
 
     public void addEdge(Node<T> source, Node<T> target, boolean bidirectional) {
-        List<Node<T>> children = adjacent.get(source.key);
-        children.add(target);
-        adjacent.put(source.key, children);
+        if (nodes.containsKey(source.key) && nodes.containsKey(target.key)) {
+            List<Node<T>> children = adjacent.get(source.key);
+            children.add(target);
+            adjacent.put(source.key, children);
 
-        if (bidirectional) {
-            children = adjacent.get(target.key);
-            children.add(source);
-            adjacent.put(target.key, children);
+            if (bidirectional) {
+                children = adjacent.get(target.key);
+                children.add(source);
+                adjacent.put(target.key, children);
+            }
         }
-
     }
 
     public void dfs(Node<T> start) {
@@ -121,7 +122,7 @@ public class Graph<T> {
     }
 
     @Getter @Setter
-    @RequiredArgsConstructor(access = AccessLevel.PRIVATE) // private constructor so that Node can not be created without Graph.addNode()
+    @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
     static class Node<T> {
         enum State {UNVISITED, VISITING, VISITED}
 
