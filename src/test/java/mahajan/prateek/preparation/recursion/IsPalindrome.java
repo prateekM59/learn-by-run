@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Created by: pramahajan on 11/19/19 1:30 AM GMT+05:30
  */
-public class Palindrome {
+public class IsPalindrome {
 
     @Test
     public void is_palindrome() {
