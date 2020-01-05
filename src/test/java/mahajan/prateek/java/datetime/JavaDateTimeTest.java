@@ -1,4 +1,4 @@
-package mahajan.prateek;
+package mahajan.prateek.java.datetime;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

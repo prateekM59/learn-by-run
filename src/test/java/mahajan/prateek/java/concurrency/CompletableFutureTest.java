@@ -46,4 +46,5 @@ public class CompletableFutureTest {
         sleepForMillis(10000);
         System.out.println(time() + "Finishing test" + threadName());
     }
+
 }
