@@ -9,8 +9,10 @@ import java.util.regex.Pattern;
  * Created by: pramahajan on 3/21/20 1:58 AM GMT+05:30
  */
 
-// Conclusion - Use full boundary($,^) for regex. Use matches() which is idempotent for full string match.
-    // Use find() for finding multiple matches in loop.
+// Conclusion
+//  Use matches() which is idempotent for full string match.
+//  Use find() for finding multiple matches in loop.
+//  Use full boundaries if using find() to match full string for first time
 public class MatcherTest {
     @Test
     public void matches_without_proper_boundary_regex_AVOID() { // matches() matches if the whole input is matched with pattern's matcher
