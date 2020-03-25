@@ -26,6 +26,7 @@ public class Basic {
     }
 
     @Test
+    // start() gives the starting position (inclusive) , end() gives the ending position (exclusive)
     public void using_find_to_get_the_matches_position() {
         Pattern regex = Pattern.compile("ABC");
 

@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
  */
 
 // http://tutorials.jenkov.com/java-regex/index.html#quantifiers
+// http://tutorials.jenkov.com/java-regex/syntax.html#quantifiers
 
 // * - for zero or more
 // + - for one or more
@@ -17,6 +18,8 @@ import java.util.regex.Pattern;
 // {n} - n times
 // {n,} - atleast n times
 // {n,m} - range n to m (inclusive, inclusive) times
+
+
 public class Quantifiers {
     @Test
     public void basic_quantifiers_zero_or_more() {
@@ -151,6 +154,29 @@ public class Quantifiers {
         Matcher matcher5 = pattern.matcher(input5);
 
         print(matcher5, "matcher5");
+    }
+
+    @Test
+    // Any quantifier (not just *) can be made reluctant by adding ? - check link for details
+    // http://tutorials.jenkov.com/java-regex/syntax.html#quantifiers
+    public void zero_or_more_quantifier_reluctant_and_greedy() {
+        Pattern pattern1 = Pattern.compile("hello*?"); // Adding ? makes reluctant quantifier - will match only what is minimum match
+
+        String input1 = "1hellooo2"; // only matches hell here (min match i.e. zero)
+        Matcher matcher1 = pattern1.matcher(input1);
+
+        while(matcher1.find()) {
+            System.out.println("Start: " + matcher1.start() + "\tend: " + matcher1.end());
+        }
+
+        Pattern pattern2 = Pattern.compile("hello*"); // This is greedy quantifier - will match maximum o(s)
+
+        String input2 = "1hellooo2"; // matches hellooo here i.e. maximum match
+        Matcher matcher2 = pattern2.matcher(input2);
+
+        while(matcher2.find()) {
+            System.out.println("Start: " + matcher2.start() + "\tend: " + matcher2.end());
+        }
     }
 
     private void print(Matcher matcher, String matcherName) {
