@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.strings.regex;
+package mahajan.prateek.java.strings.regex;
 
 import org.junit.Test;
 
@@ -21,6 +21,30 @@ public class CharacterClasses {
 
         while(matcher1.find()) {
             System.out.println("Start: " + matcher1.start() + "\tend: " + matcher1.end());
+        }
+    }
+
+    @Test
+    // . is to match with any single character
+    public void any_character() {
+        Pattern pattern = Pattern.compile("ABC.");
+
+        String input1 = "ABCD";
+        Matcher matcher1 = pattern.matcher(input1);
+
+        if (matcher1.matches()) {
+            System.out.println("matches matcher1");
+        } else {
+            System.out.println("does not match matcher1");
+        }
+
+        String input2 = "ABC1";
+        Matcher matcher2 = pattern.matcher(input2);
+
+        if (matcher2.matches()) {
+            System.out.println("matches matcher2");
+        } else {
+            System.out.println("does not match matcher2");
         }
     }
 

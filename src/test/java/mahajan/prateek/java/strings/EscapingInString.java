@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.strings;
+package mahajan.prateek.java.strings;
 
 import org.junit.Test;
 

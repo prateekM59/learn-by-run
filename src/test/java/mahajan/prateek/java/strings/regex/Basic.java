@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.strings.regex;
+package mahajan.prateek.java.strings.regex;
 
 import org.junit.Test;
 
