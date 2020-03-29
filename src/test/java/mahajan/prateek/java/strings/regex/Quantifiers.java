@@ -159,6 +159,7 @@ public class Quantifiers {
     @Test
     // Any quantifier (not just *) can be made reluctant by adding ? - check link for details
     // http://tutorials.jenkov.com/java-regex/syntax.html#quantifiers
+    // https://stackoverflow.com/a/5319978/8350901 - for example with working
     public void zero_or_more_quantifier_reluctant_and_greedy() {
         Pattern pattern1 = Pattern.compile("hello*?"); // Adding ? makes reluctant quantifier - will match only what is minimum match
 
@@ -178,6 +179,8 @@ public class Quantifiers {
             System.out.println("Start: " + matcher2.start() + "\tend: " + matcher2.end());
         }
     }
+
+
 
     private void print(Matcher matcher, String matcherName) {
         if (matcher.matches()) {
