@@ -84,7 +84,7 @@ public class Graph<T> {
                 }
             }
 
-            start.state = VISITED;
+            node.state = VISITED;
         }
 
     }
