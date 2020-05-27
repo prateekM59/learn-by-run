@@ -57,6 +57,7 @@ public class Graph<T> {
         }
     }
 
+    // Best implementation of DFS at https://leetcode.com/submissions/detail/345565408/ - doesn't use enums, detects cycle, prints all nodes, etc.
     public void dfs(Node<T> start) {
         markAllNodesUnvisited();   // important for subsequent runs
         dfsUtil(start);
@@ -69,21 +70,22 @@ public class Graph<T> {
 
         Queue<Node<T>> queue = new LinkedList<>();
 
-        start.state = VISITING;
+        start.state = VISITING; // mark before enqueue
         queue.add(start);
 
         while (!queue.isEmpty()) {
-            Node<T> node;
-            node = queue.remove();
-
+            Node<T> node = queue.remove();
             visit(node);
+
             for (Node<T> neighbour: adjacent.get(node.key)) {
                 if (neighbour.isUnvisited()) {
-                    neighbour.state = VISITING;
+                    neighbour.state = VISITING; // need to mark visiting explicitly in BFS due to while loop, in DFS it is handled by recursion
                     queue.add(neighbour);
                 }
             }
 
+            // mark a node visited only when all work is done on this node -
+            // i.e. node has been visited and its children have been enqueued
             node.state = VISITED;
         }
 
@@ -104,7 +106,7 @@ public class Graph<T> {
 
         for (Node<T> neighbour : adjacent.get(start.key)) {
             if (neighbour.isUnvisited()) {   // if neighbours are unvisited, recurse on them
-                dfsUtil(neighbour);
+                dfsUtil(neighbour); // in DFS, no need to mark visiting explicitly as it is handled by recursion but BFS needs explicit marking to visiting
             }
         }
 
