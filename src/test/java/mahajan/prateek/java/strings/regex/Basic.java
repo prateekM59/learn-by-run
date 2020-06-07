@@ -9,6 +9,27 @@ import java.util.regex.Pattern;
  * Created by: pramahajan on 3/17/20 3:11 AM GMT+05:30
  */
 
+// Escape characters
+// <            => use as \\<
+// >            => use as \\>
+// (
+// )
+// [
+// ]
+// {
+// }
+// \
+// ^
+// -
+// =
+// $
+// !
+// |
+// ?
+// *
+// +
+// .
+
 //http://tutorials.jenkov.com/java-regex/index.html
 public class Basic {
     @Test
