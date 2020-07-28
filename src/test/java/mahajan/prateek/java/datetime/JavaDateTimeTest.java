@@ -25,8 +25,6 @@ import java.util.Set;
  * {@link DateTimeFormatter javadoc}
  *
  */
-
-@RunWith(JUnit4.class)
 public class JavaDateTimeTest {
 
     @Test
