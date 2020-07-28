@@ -30,19 +30,34 @@ import java.util.Set;
 public class JavaDateTimeTest {
 
     @Test
+    public void practical_case_with_now_and_comparisons() {
+        // This is how to get current time (LocalDateTime.now() is wrong because LocalDateTime is system specific)
+        ZonedDateTime zonedDateTimeNow = ZonedDateTime.now(ZoneId.of("UTC"));
+        System.out.println("zonedDateTimeNow: "+ zonedDateTimeNow);
+
+        ZonedDateTime someOtherZonedDateTime = ZonedDateTime.parse("2020-05-13T14:15-0500", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mmZZ"));
+        System.out.println("someOtherZonedDateTime: "+ someOtherZonedDateTime);
+
+        // they are in different zoneIds but comparison is done on uniformly defined epoch time
+        System.out.println(someOtherZonedDateTime.isBefore(zonedDateTimeNow));
+        System.out.println(someOtherZonedDateTime.isAfter(zonedDateTimeNow));
+    }
+
+
+    @Test
     public void obtain_ZonedDatetime_from_fixed_LocalDateTime() throws Exception {
         // LocalDateTime has no zone - it is local to system on which code is running
-        LocalDateTime someDateTime = LocalDateTime.of(2018, 7, 17, 13, 5);
+        LocalDateTime fixedLocalDateTime = LocalDateTime.of(2018, 7, 17, 13, 5);
 
         // Convert LocalDateTime to ZonedDateTime
-
+        // We are just porting this fixed localDateTime value to Zone of London or Kolkata
         ZoneId zoneIdKolkata = ZoneId.of("Asia/Kolkata");
-        ZonedDateTime kolkataDateTimeWithAGivenDateTimeValue = ZonedDateTime.of(someDateTime, zoneIdKolkata);
+        ZonedDateTime kolkataDateTimeWithAGivenDateTimeValue = ZonedDateTime.of(fixedLocalDateTime, zoneIdKolkata);
 
         ZoneId zoneIdLondon = ZoneId.of("Europe/London");
-        ZonedDateTime londonDateTimeWithAGivenDateTimeValue = ZonedDateTime.of(someDateTime, zoneIdLondon);
+        ZonedDateTime londonDateTimeWithAGivenDateTimeValue = ZonedDateTime.of(fixedLocalDateTime, zoneIdLondon);
 
-        System.out.println("July 17, 2018 13:05PM (without any zone): " + someDateTime);
+        System.out.println("July 17, 2018 13:05PM (without any zone): " + fixedLocalDateTime);
         System.out.println("July 17, 2018 13:05PM in Kolkata: " + kolkataDateTimeWithAGivenDateTimeValue);
         System.out.println("July 17, 2018 13:05PM in London: " + londonDateTimeWithAGivenDateTimeValue);
         System.out.println("\nNotice how a single fixed LocalDateTime is converted to multiple ZonedDateTime instances");
@@ -56,16 +71,15 @@ public class JavaDateTimeTest {
         LocalDateTime localDateTime = LocalDateTime.now();
 
         // Convert LocalDateTime to ZonedDateTime
-
-        ZoneId zoneIdLondon = ZoneId.of("Europe/London");
+        // We are just porting this fixed localDateTime value to Zone of London
+        ZoneId zoneIdLondon = ZoneId.of("Europe/London"); // ZoneId.of("UTC") is very common
         ZonedDateTime londonDateTimeFromFixedCurrentLocalDatetime = ZonedDateTime.of(localDateTime, zoneIdLondon);
 
         ZonedDateTime currentDateTimeInLondon = ZonedDateTime.now(zoneIdLondon);
 
-        System.out.println("Current LocalDateTime (without any zone): " + localDateTime);
+        System.out.println("Current LocalDateTime (without any zone, obtained from System clock): " + localDateTime);
         System.out.println("\nEurope/London ZonedDateTime obtained from fixed LocalDateTime: " + londonDateTimeFromFixedCurrentLocalDatetime + " -- This is same value of given LocalDateTime but a zone of London is appended. USAGE - Use this when you need a fixed clock in some zone e.g. July 17, 2018 13:05PM in London !!!");
         System.out.println("\n\nCurrent ZonedDateTime in Zone of Europe/London: " + currentDateTimeInLondon + " -- This is the current time in London zone and would be shown in a clock placed in London. USAGE - When you need current datetime in London");
-
     }
 
     @Test
@@ -123,9 +137,8 @@ public class JavaDateTimeTest {
         ZonedDateTime zonedDateTime4 = ZonedDateTime.parse("Sat, Jul 13, 2019 22:37 +01:00", DateTimeFormatter.ofPattern("E, MMM dd, yyyy HH:mm z"));
         System.out.println("parsed zonedDateTime4: "+ zonedDateTime4);
 
-//        LocalDate zonedDateTime5 = LocalDate.parse("2019-03-31", DateTimeFormatter.ofPattern("MMM dd, yyyy")); // error because given format does not match given date formate to parse
+//      LocalDate zonedDateTime5 = LocalDate.parse("2019-03-31", DateTimeFormatter.ofPattern("MMM dd, yyyy")); // error because given format does not match given date formate to parse
 
     }
-
 
 }
