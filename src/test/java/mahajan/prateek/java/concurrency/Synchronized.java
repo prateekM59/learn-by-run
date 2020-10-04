@@ -11,6 +11,13 @@ import static mahajan.prateek.java.concurrency.Utils.waitForThread;
 /**
  * Created by: pramahajan on 10/3/20 11:58 PM GMT+05:30
  */
+
+/**
+ * Shown only for instance methods Synchronization (using this object)
+ * Static methods can also be synchronized using Class object
+ * Also synchronized blocks can be used to limit the Critical section since Synchronization comes at a cost
+ * Refer http://tutorials.jenkov.com/java-concurrency/synchronized.html
+ */
 public class Synchronized {
 
     @Test
