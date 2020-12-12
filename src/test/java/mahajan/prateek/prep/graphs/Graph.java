@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.graphs;
+package mahajan.prateek.prep.graphs;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-import static mahajan.prateek.preparation.graphs.Graph.Node.State.VISITED;
-import static mahajan.prateek.preparation.graphs.Graph.Node.State.VISITING;
+import static mahajan.prateek.prep.graphs.Graph.Node.State.VISITED;
+import static mahajan.prateek.prep.graphs.Graph.Node.State.VISITING;
 
 /**
  * Created by: pramahajan on 11/6/19 11:39 PM GMT+05:30

@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.arrays;
+package mahajan.prateek.prep.arrays;
 
 import org.junit.Test;
 

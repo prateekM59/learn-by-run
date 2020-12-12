@@ -1,8 +1,6 @@
-package mahajan.prateek.preparation.recursion;
+package mahajan.prateek.prep.recursion;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 /**
  * Created by: pramahajan on 11/2/19 2:05 AM GMT+05:30

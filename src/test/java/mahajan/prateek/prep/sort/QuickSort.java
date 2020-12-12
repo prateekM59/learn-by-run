@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.sort;
+package mahajan.prateek.prep.sort;
 
 import org.junit.Test;
 

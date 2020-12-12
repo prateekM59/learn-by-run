@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.recursion;
+package mahajan.prateek.prep.recursion;
 
 import org.junit.Test;
 

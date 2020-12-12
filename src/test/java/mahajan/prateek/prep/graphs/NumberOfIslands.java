@@ -1,4 +1,4 @@
-package mahajan.prateek.preparation.graphs;
+package mahajan.prateek.prep.graphs;
 
 import org.junit.Test;
 

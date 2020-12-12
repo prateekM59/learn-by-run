@@ -1,11 +1,9 @@
-package mahajan.prateek.preparation.recursion;
+package mahajan.prateek.prep.recursion;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 /**
