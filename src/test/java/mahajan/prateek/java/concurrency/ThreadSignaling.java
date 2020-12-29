@@ -275,7 +275,7 @@ public class ThreadSignaling {
 
                     // Some theory about notify/notifyAll (should also refer to JavaDoc):
                     // Suppose current thread is T0 and it calls lock.notify()
-                    // Calling notify() just switches some WAITING thread T1's state from WAITING to BLOCKED
+                    // Calling notify() just switches some WAITING thread T1's state from WAITING to BLOCKED (https://stackoverflow.com/a/15680579/8350901 for waiting vs blocked)
                     // and that BLOCKED T1 now competes with other BLOCKED threads (T2,T3) which are BLOCKED on lock already
                     // (T2 is at entry of sync block and T3 was awakened previously like T1 but haven't got the lock yet)
                     // JVM selects one of them arbitrarily so there's no guarantee which thread would get the lock.
